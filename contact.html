@@ -82,7 +82,7 @@
             <span class="navbar-logo me-3">
                 <img src="img/mubuyu-logo.png" alt="Mubuyu Bush Camp Logo">
             </span>
-            <h1 class="m-0 text-primary">Mubuyu Bush Camp</h1>
+            <div class="h1 m-0 text-primary">Mubuyu Bush Camp</div>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -101,6 +101,7 @@
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
                 </div>
+                <a href="blog.html" class="nav-item nav-link">Blog</a>
                 <a href="contact.html" class="nav-item nav-link active">Contact</a>
             </div>
             <a href="https://wa.me/260977875573" class="btn btn-primary">WhatsApp Us<i
@@ -183,7 +184,7 @@
                         </div>
                     </div>
 
-                    <form action="https://formspree.io/f/mubuyubushcamp@gmail.com" method="POST">
+                    <form id="contact-form" action="https://formspree.io/f/mubuyubushcamp@gmail.com" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -256,11 +257,6 @@
                                 class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social"
                             href="https://www.instagram.com/mubuyu.bush.camp/"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social me-2"
-                            href="https://www.facebook.com/p/Mubuyu-Bush-Camp-100071736289644/"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social"
-                            href="https://www.instagram.com/mubuyu.bush.camp/"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -277,12 +273,12 @@
                     <h5 class="text-light mb-4">Coordination</h5>
                     <a class="btn btn-link" href="contact.html">Plan Your Stay</a>
                     <a class="btn btn-link" href="testimonial.html">Guest Stories</a>
+                    <a class="btn btn-link" href="blog.html">Bush Journals</a>
+                    <a class="btn btn-link" href="privacy.html">Privacy Policy</a>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Seasonality</h5>
-                    <p class="opacity-75">We are open year-round except December through March. Plan your safari
-                        adventure during our operating season.</p>
                     <p class="opacity-75">We are open year-round except December through March. Plan your safari
                         adventure during our operating season.</p>
                     <a href="contact.html" class="btn btn-primary mt-3">Plan Your Safari</a>
@@ -313,6 +309,49 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <script src="js/main.js"></script>
+
+    <script>
+        var form = document.getElementById("contact-form");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var data = new FormData(event.target);
+            var submitButton = form.querySelector('button[type="submit"]');
+            var originalText = submitButton.innerText;
+
+            submitButton.disabled = true;
+            submitButton.innerText = "Sending...";
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Thank you! Your inquiry has been sent. We are now redirecting you to WhatsApp designed for faster communication.");
+                    form.reset();
+                    window.location.href = "https://wa.me/260977875573";
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                    })
+                    submitButton.disabled = false;
+                    submitButton.innerText = originalText;
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+                submitButton.disabled = false;
+                submitButton.innerText = originalText;
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
 
     <a href="https://wa.me/260977875573" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
