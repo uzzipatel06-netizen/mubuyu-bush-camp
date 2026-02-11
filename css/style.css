@@ -157,7 +157,7 @@ p,
 .text-uppercase.fw-bold {
     font-family: var(--sans);
     font-size: 0.78rem;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 600;
     color: var(--primary);
@@ -219,6 +219,7 @@ a:hover {
     overflow: hidden;
     background-color: rgba(20, 19, 18, 0.04);
     width: 100%;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .img-cover {
@@ -227,6 +228,11 @@ a:hover {
     object-fit: cover;
     display: block;
     transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.media-container:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
 }
 
 .media-container:hover .img-cover {
@@ -312,6 +318,24 @@ picture>img {
     transform: scale(1.1);
 }
 
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(75, 91, 74, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(75, 91, 74, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(75, 91, 74, 0);
+    }
+}
+
+.whatsapp-float {
+    animation: pulse-whatsapp 2s infinite;
+}
+
 /* Accessibility: screen-reader-only text (Bootstrap 5 .visually-hidden fallback) */
 .visually-hidden {
     position: absolute !important;
@@ -360,7 +384,8 @@ picture>img {
 
 .btn-primary:hover {
     background-color: var(--primary) !important;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(20, 19, 18, 0.12);
 }
 
 .btn-outline-primary {
@@ -449,6 +474,10 @@ picture>img {
     top: -100px;
     transition: .5s;
     box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar .navbar-brand {
@@ -513,7 +542,7 @@ picture>img {
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     outline: none;
     transition: 0.3s;
 }
@@ -556,10 +585,10 @@ picture>img {
 
 .trust-item span {
     font-family: var(--sans);
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.2em;
     color: var(--dark);
     opacity: 0.7;
 }
@@ -694,6 +723,12 @@ picture>img {
     font-size: 0.9rem;
     font-weight: 600;
     z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.timeline-step:hover .step-number {
+    transform: scale(1.1);
+    background-color: var(--dark);
 }
 
 .step-label {
@@ -707,6 +742,38 @@ picture>img {
 
 .timeline-step h3 {
     margin-bottom: 12px;
+}
+
+.header-carousel .owl-carousel-item {
+    position: relative;
+}
+
+.header-carousel .owl-carousel-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.5) 0%, transparent 40%),
+        linear-gradient(to right, rgba(18, 18, 18, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: auto;
+    text-align: left;
+    z-index: 10;
+    padding: 0;
+}
+
+.carousel-caption .eyebrow {
+    font-size: 0.7rem;
+    border-left: 2px solid var(--primary);
+    padding-left: 15px;
 }
 
 .modal-video .modal-dialog {
