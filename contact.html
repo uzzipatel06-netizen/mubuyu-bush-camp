@@ -213,6 +213,16 @@
                         </div>
                     </div>
 
+                    <div class="mb-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fa fa-check text-primary me-2"></i> No obligation enquiry</li>
+                            <li class="mb-2"><i class="fa fa-check text-primary me-2"></i> We respond within 24 hours
+                            </li>
+                            <li class="mb-2"><i class="fa fa-check text-primary me-2"></i> Tailor-made safari planning
+                                assistance</li>
+                        </ul>
+                    </div>
+
                     <form id="contact-form" action="https://formspree.io/f/mubuyubushcamp@gmail.com" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -231,12 +241,19 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="date" name="arrival_date" class="form-control bg-light border-0"
-                                        id="arrival" placeholder="Arrival Date">
-                                    <label for="arrival">Expected Arrival</label>
+                                    <input type="text" name="country" class="form-control bg-light border-0"
+                                        id="country" placeholder="Country" required>
+                                    <label for="country">Country</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="dates" class="form-control bg-light border-0" id="dates"
+                                        placeholder="Tentative Dates">
+                                    <label for="dates">Tentative Dates</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <div class="form-floating">
                                     <input type="number" name="guests" class="form-control bg-light border-0"
                                         id="guests" placeholder="Number of Guests">
@@ -246,13 +263,14 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea name="message" class="form-control bg-light border-0"
-                                        placeholder="Tell us about your trip (Fishing, Safari, Tenting, etc.)"
-                                        id="message" style="height: 120px" required></textarea>
-                                    <label for="message">Message / Inquiry Details</label>
+                                        placeholder="Message" id="message" style="height: 120px" required></textarea>
+                                    <label for="message">Message</label>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Inquiry</button>
+                            <div class="col-12 text-center mt-4">
+                                <p class="small text-muted mb-3">After submission, you will be redirected to WhatsApp to
+                                    finalize your enquiry details with our team.</p>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Enquiry</button>
                             </div>
                         </div>
                     </form>
