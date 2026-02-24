@@ -952,11 +952,14 @@ picture>img {
 
 /*** Facts & Visiting Hours ***/
 .facts {
-    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), url(../img/mubuyu-lodge-twilight.jpg);
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), url(../img/mubuyu-lodge-twilight.jpg) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .visiting-hours {
-    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), url(../img/mubuyu-deck-stringlights-2.jpg);
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), url(../img/mubuyu-deck-stringlights-2.jpg) center center no-repeat;
+    background-size: cover;
 }
 
 .visiting-hours .list-group-item {
