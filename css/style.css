@@ -12,7 +12,7 @@
     /* Charcoal */
     --accent: #4B5B4A;
     /* Muted Forest */
-    --muted: #7D746B;
+    --muted: #3F3934;
     --border: rgba(20, 19, 18, 0.08);
     --shadow-soft: 0 20px 60px rgba(20, 19, 18, 0.08);
     --shadow-card: 0 12px 30px rgba(20, 19, 18, 0.08);
@@ -20,7 +20,7 @@
     --serif: 'Playfair Display', serif;
     --sans: 'Outfit', sans-serif;
 
-    --section-py: 140px;
+    --section-py: 72px;
 }
 
 html {
@@ -51,7 +51,7 @@ body {
     color: var(--dark);
     line-height: 1.8;
     background-color: var(--light);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -108,7 +108,7 @@ p,
 .lead {
     color: var(--muted);
     font-size: 1.05rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 1.4rem;
 }
 
@@ -190,8 +190,15 @@ a:hover {
 }
 
 .py-5 {
-    padding-top: 110px !important;
-    padding-bottom: 110px !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+}
+
+.section-pad > .container.py-5,
+.section-pad > .container > .py-5,
+.facts .py-5 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .section-divider {
@@ -244,18 +251,18 @@ a:hover {
 
 @media (max-width: 991.98px) {
     .py-5 {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
     }
 
     .section-pad {
-        padding-top: 90px;
-        padding-bottom: 90px;
+        padding-top: 56px;
+        padding-bottom: 56px;
     }
 
     .section-pad-sm {
-        padding-top: 70px;
-        padding-bottom: 70px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 }
 
@@ -277,12 +284,12 @@ a:hover {
 }
 
 .media-container:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-soft);
+    transform: none;
+    box-shadow: none;
 }
 
 .media-container:hover .img-cover {
-    transform: scale(1.05);
+    transform: none;
 }
 
 /* Atmospheric Overlay: Normalizes image quality and adds warm ambient feel */
@@ -430,8 +437,8 @@ picture>img {
 
 .btn-primary:hover {
     background-color: var(--primary) !important;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(20, 19, 18, 0.12);
+    transform: none;
+    box-shadow: none;
 }
 
 .btn-outline-primary {
@@ -550,9 +557,9 @@ picture>img {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 68px !important;
-    height: 68px !important;
-    padding: 8px !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 4px !important;
     background: rgba(20, 19, 18, 0.04);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-card);
@@ -564,14 +571,15 @@ picture>img {
 .navbar .navbar-brand .navbar-logo img {
     height: auto !important;
     width: auto !important;
-    max-height: 52px !important;
-    max-width: 52px !important;
+    max-height: 36px !important;
+    max-width: 36px !important;
     object-fit: contain;
     transition: 0.4s ease;
 }
 
-.navbar .navbar-brand h1 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+.navbar .navbar-brand h1,
+.navbar .navbar-brand .h1 {
+    font-size: 1.05rem !important;
     margin: 0 !important;
     line-height: 1 !important;
     letter-spacing: 0.05em !important;
@@ -582,8 +590,8 @@ picture>img {
 
 .navbar .navbar-nav .nav-link {
     font-family: var(--sans);
-    margin-right: 35px;
-    padding: 35px 0;
+    margin-right: 22px;
+    padding: 14px 0;
     color: var(--dark);
     font-size: 12px;
     font-weight: 500;
@@ -1011,7 +1019,7 @@ picture>img {
 }
 
 .animal-item:hover img {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .animal-item .animal-text h5 {
@@ -1193,12 +1201,31 @@ picture>img {
     height: 240px;
     object-fit: cover;
     border-radius: 0;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: 0.5s ease-out;
+    filter: none;
+    opacity: 1;
 }
 
 .service-img:hover {
-    filter: grayscale(0%);
+    filter: none;
     opacity: 1;
+}
+
+/* Still first view: no loader, no fade-in, no hidden images */
+#spinner {
+    display: none !important;
+}
+
+.wow {
+    visibility: visible !important;
+    animation: none !important;
+}
+
+.reveal-mask {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* One slim bar: the season notice. Hide the extra desktop contact strip. */
+.container-fluid.bg-light.p-0:has(.fa-phone-alt) {
+    display: none !important;
 }
