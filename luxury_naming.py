@@ -2,14 +2,14 @@ import os
 
 files = ['index.html', 'about.html', 'service.html', 'contact.html', 'testimonial.html', 'animal.html', 'gallery.html', 'accommodation.html']
 
-def luxury_naming(filepath):
+def brand_naming(filepath):
     if not os.path.exists(filepath):
         return
 
     with open(filepath, 'r') as f:
         content = f.read()
 
-    # Rename common terms to more luxurious ones
+    # Standardize common safari terms
     content = content.replace('Our Services', 'The Experience')
     content = content.replace('Services', 'Experiences')
     content = content.replace('Our Animals', 'Wildlife')
@@ -22,5 +22,5 @@ def luxury_naming(filepath):
 
 if __name__ == "__main__":
     for file in files:
-        luxury_naming(file)
-    print("Luxury naming applied.")
+        brand_naming(file)
+    print("Brand naming verified.")

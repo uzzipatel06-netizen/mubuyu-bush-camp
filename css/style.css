@@ -27,7 +27,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Luxury Custom Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -285,7 +285,7 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Atmospheric Overlay: Normalizes image quality and adds luxury feel */
+/* Atmospheric Overlay: Normalizes image quality and adds warm ambient feel */
 .media-container::after {
     content: "";
     position: absolute;
